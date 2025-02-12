@@ -1,5 +1,5 @@
 # EPICO JOGO.COM.BR - o jogo épico ;-;
-# JOGO EM FASE DE DESENVOLVIDO.
+# JOGO EM MEGA BETA
 ### Como assim?
 EPICO JOGO.COM.BR é a continuação de EPICO JOGO.COM. Só que agora terá personagens para jogar com eles e mais imersão! (num prompt de comando)
 ### Como baixar
