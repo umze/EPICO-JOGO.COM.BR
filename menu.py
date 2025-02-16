@@ -4,6 +4,7 @@ import sys
 import subprocess
 import time
 import webbrowser
+import pyautogui
 
 color = {
     "red": "\033[31m",
@@ -35,7 +36,7 @@ def check_package(package_name):
         print(f"{package_name} está instalado.")
     except subprocess.CalledProcessError:
         print(f"{package_name} não está instalado.")
-        print("Deseja instalar a dependencia? Caso não queira, o jogo não irá funcionar")
+        print("Deseja instalar a dependencia? Sem ela o jogo não irá funcionar")
         resp = input("[Y: Sim | N: Não]: ")
         if resp == "y" or resp == "y":
             os.system(f"pip install {package_name}")
@@ -49,6 +50,8 @@ def print_animated(text, delay=0.1):
         time.sleep(delay)       # Pausa por um curto período
     print()  # Pula linha no final
 
+check_package("pyautogui")
+
 os.system("cls")
 print("Dos mesmos criadores de")
 os.system("title é deles msm")
@@ -61,7 +64,9 @@ for i in range(100):
 os.system("cls")
 print("Apresentamos o INCRÍVEL:", end="\r")
 os.system("title MEU DEUSS")
-time.sleep(3.0)
+time.sleep(1.0)
+os.system("cd assets/videos && abertura.mp4")
+
 while True:
     os.system("cls")
     print(f"{color['cian']}EPICO JOGO.COM.BR         {color['reset']}")
@@ -87,11 +92,11 @@ while True:
             time.sleep(1)
             print("-----------------------")
             time.sleep(0.2)
-            print("1: Nasci")
+            print("1: Nasci (TUTORIAL)")
             time.sleep(0.2)
-            print("2: Renan (EM BREVE)")
+            print("2: niveK (EM BREVE)")
             time.sleep(0.2)
-            print("3: niveK (EM BREVE)")
+            print("3: Renan (EM BREVE)")
             time.sleep(0.2)
             print("4: Jogo livre (EM BREVE)")
             time.sleep(0.2)
@@ -99,7 +104,7 @@ while True:
             personagem = input("R: ")
             
             if personagem == "1":
-                os.system("""cd scripts && echo nasci.py > hist.txt """)
+                os.system("cd scripts && echo nasci.py > hist.txt")
                 os.system("cd assets && tremor.py")
                 os.system("cd scripts && reset.py")
                 escolhido = 2

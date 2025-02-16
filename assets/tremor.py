@@ -3,7 +3,7 @@ import time
 import random
 import threading
 import os
-
+os.system("title Carregando - EPICO JOGO.COM.BR")
 # Obter o handle da janela ativa (o CMD)
 hwnd = ctypes.windll.user32.GetForegroundWindow()
 
@@ -26,7 +26,6 @@ x_inicial, y_inicial = rect.left, rect.top
 # Carregar as mensagens do arquivo .txt
 def carregar_frases_txt(caminho_arquivo):
     with open(caminho_arquivo, 'r', encoding='utf-8') as arquivo:
-        os.system(f"title '{arquivo}'")
         return arquivo.readlines()
 
 # Carregar as frases
@@ -67,7 +66,6 @@ thread_tremor.join()
 thread_mensagens.join()
 
 # Mensagem final após o tremor
-os.system("title 'Fim - EPICO JOGO.COM.BR'")
+os.system("title EPICO JOGO.COM.BR")
 print("\nPRONTO PARA COMEÇAR!")
 input("Pressione ENTER para começar")
-os.system("")
