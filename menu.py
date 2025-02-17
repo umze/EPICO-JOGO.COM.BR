@@ -98,8 +98,6 @@ while True:
             time.sleep(0.2)
             print("3: Renan (EM BREVE)")
             time.sleep(0.2)
-            print("4: Jogo livre (EM BREVE)")
-            time.sleep(0.2)
             print("5: Voltar")
             personagem = input("R: ")
             
