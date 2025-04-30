@@ -7,7 +7,7 @@ EPICO JOGO.COM.BR é um jogo feito em Python rodado no prompt de comando (CMD), 
 Cada história tem algo para te surpreender.
 
 ### AVISO AO JOGADOR
-Esse jogo é capaz de manipular a janela do jogo, criar arquivos, enviar noticações, usar informações do seu computador e abrir arquivos de forma inesperada. Algumas alterações podem não se reverter de volta sozinho. Isso não é um jogo de terror.
+Esse jogo é capaz de manipular a janela do jogo, criar arquivos, enviar noticações, usar informações do seu computador e abrir arquivos de forma inesperada. Algumas alterações podem não se reverter sozinho. Isso não é um malware ou um programa mal-intenciado.
 Eu (Leonardo) não irei receber nenhuma infomação sua, seus dados são usados apenas no jogo.
 
 ### Como baixar
