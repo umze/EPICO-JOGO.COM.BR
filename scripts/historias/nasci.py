@@ -3,6 +3,8 @@ import time
 import sys
 import os
 import platform
+import ctypes
+from pathlib import Path
 
 os.system("title Nasci - EPICO JOGO.COM.BR")
 node = platform.node()
@@ -18,8 +20,59 @@ color = {
     "gray": "\033[37m",
     "bold": "\033[1m",
     "underlined": "\033[4m",
-    "reset": "\033[0m"  # Para resetar a cor
+    "reset": "\033[0m"
 }
+
+class GUID(ctypes.Structure):
+    _fields_ = [
+        ("Data1", ctypes.c_ulong),
+        ("Data2", ctypes.c_ushort),
+        ("Data3", ctypes.c_ushort),
+        ("Data4", ctypes.c_ubyte * 8)
+    ]
+
+def string_to_guid(guid_string):
+    guid = GUID()
+    ctypes.windll.ole32.CLSIDFromString(ctypes.c_wchar_p(guid_string), ctypes.byref(guid))
+    return guid
+
+def get_known_folder(folder_id_str):
+    folder_id = string_to_guid(folder_id_str)
+
+    SHGetKnownFolderPath = ctypes.windll.shell32.SHGetKnownFolderPath
+    SHGetKnownFolderPath.argtypes = [
+        ctypes.POINTER(GUID), ctypes.c_uint32, ctypes.c_void_p,
+        ctypes.POINTER(ctypes.c_wchar_p)
+    ]
+    SHGetKnownFolderPath.restype = ctypes.HRESULT
+
+    path_ptr = ctypes.c_wchar_p()
+    result = SHGetKnownFolderPath(ctypes.byref(folder_id), 0, None, ctypes.byref(path_ptr))
+
+    if result != 0:
+        raise OSError(f"Erro fodido no SHGetKnownFolderPath: {result}")
+
+    return path_ptr.value
+
+FOLDERIDS = {
+    "Downloads": "{374DE290-123F-4565-9164-39C4925E467B}",
+    "Documents": "{FDD39AD0-238F-46AF-ADB4-6C85480369C7}",
+    "Desktop": "{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}",
+}
+
+local = random.choice(["Downloads", "Documents", "Desktop"])
+
+try:
+    pasta = get_known_folder(FOLDERIDS[local])
+except Exception as e:
+
+    pasta = get_known_folder(FOLDERIDS["Desktop"])
+
+if not os.path.exists(pasta):
+
+    pasta = get_known_folder(FOLDERIDS["Desktop"])
+
+senha = str(random.randint(1000, 9999))
 
 def final(titulo, descricao):
     time.sleep(3.0)
@@ -39,17 +92,17 @@ def finalHist(titulo, descricao):
     time.sleep(0.5)
     print_animated(descricao, delay=0.09)
     print("")
-    print_animated("Parabéns, você concluiu a história principal do Nasci! Em breve lançarei a história dos outros personagens.")
-    print_animated(f"Obrigado por jogar {node} :)")
+    print("Parabéns, você concluiu a história principal do Nasci!")
+    print(f"Obrigado por jogar {node} :)")
     print("-----------------------------------------")
     exit()
 
 def print_animated(text, delay=0.1):
     for char in text:
-        sys.stdout.write(char)  # Escreve o caractere sem pular linha
-        sys.stdout.flush()      # Força a atualização do output
-        time.sleep(delay)       # Pausa por um curto período
-    print()  # Pula linha no final
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
 
 os.system("cls")
 print("Vamos começar uma nova história, onde tudo começou.")
@@ -85,12 +138,10 @@ if gasolina == "1":
 elif gasolina == "2":
     os.system("cls")
     time.sleep(1.0)
-    print_animated("primeiro,")
-    print_animated("como q tu vai pro posto sem o carro?", delay=0.1)
+    print("primeiro")
+    time.sleep(1)
+    print("como q tu vai pro posto sem o carro?")
     time.sleep(3.0)
-    print_animated("Então...", delay=0.4)
-    time.sleep(3.0)
-    print_animated("Esse é o fim")
     final("NÃO FUI", "Não tinha gasolina, nem para ir no posto :(")
 else:
     final("DESISTO!", "Não quero mais comprar leite condensado, cancei")
@@ -107,21 +158,10 @@ time.sleep(3)
 print_animated("Nasci: Qual é a senha do meu celular?")
 print_animated("Você lembra que a senha de seu celular em algum lugar do seu computador", delay=0.05)
 time.sleep(2.0)
-print("Carregando...")
-local = random.randint(1,3)
-usuario = os.getlogin()
-senha = str(random.randint(1000,9999))
-if local == 1:
-    local = "Downloads"
-elif local == 2:
-    local = "Documents"
-elif local == 3:
-    local = "Desktop"
-pasta = f"C:/Users/{usuario}/{local}"
-os.system(f"""cd {pasta} && echo Senha do celular: >> "senha do celular.txt" && echo {senha} >> "senha do celular.txt" """)
-
+arquivo = Path(pasta) / "senha do celular.txt"
+with open(arquivo, "a", encoding="utf-8") as f:
+    f.write(f"Senha do celular:\n{senha}\n")
 os.system("cls")
-
 print_animated("Você procura nas pastas principais do computador")
 time.sleep(1.0)
 print()
@@ -132,14 +172,14 @@ for i in range(3):
     print(f"Verificando senha{'.' * (i % 3 + 1)}", end="\r")
     time.sleep(1.0)
 
-os.system(f"""cd C:/Users/{usuario}/{local} && del "senha do celular.txt" """)
+os.system(f"""cd {local} && del "senha do celular.txt" """)
 
 if senhaU == senha:
     print_animated(f"{color['green']}Senha correta!       {color['reset']} ")
     time.sleep(3.0)
 else:
     print_animated(f"{color['red']}Senha incorreta!       {color['reset']}")
-    final(f"VOCÊ NÃO SABE PROCURAR NOS SEUS ARQUIVOS DIREITO {node}?", f"Você não viu na pasta {pasta}? Já deletei kkk, não vai ver n kkk")
+    final(f"VOCÊ NÃO SABE PROCURAR NOS SEUS ARQUIVOS DIREITO {node}?", f"Você não viu na pasta {local}? Já deletei kkk, não vai ver n kkk")
 
 os.system("cls")
 print_animated("Ele desbloqueia o celular", delay=0.05)
