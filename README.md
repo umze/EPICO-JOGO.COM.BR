@@ -17,3 +17,7 @@ Eu (Leonardo) não irei receber nenhuma infomação sua, seus dados são usados 
 <br/>`winget install Python.Python.3.13`
 <br/>Após isso, baixe o código fonte e rode *jogo.py*
 <br/>Ao abrir o jogo ele irá solicitar a instalação de algumas dependências. Caso não seja instalado, o jogo não irá funcionar corretamente.
+
+# Atualizações
+> 30/04/2025
+- Nova história: niveK
