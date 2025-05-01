@@ -18,6 +18,16 @@ Eu (Leonardo) não irei receber nenhuma infomação sua, seus dados são usados 
 <br/>Após isso, baixe o código fonte e rode *jogo.py*
 <br/>Ao abrir o jogo ele irá solicitar a instalação de algumas dependências. Caso não seja instalado, o jogo não irá funcionar corretamente.
 
-# Atualizações
-> 30/04/2025
+# Atualizações (pode conter spoilers)
+## 30/04/2025
+### Adicionado
 - Nova história: niveK
+- Vídeo de introdução ao abrir o jogo
+- Verificador de dependencias: agora o jogo irá instalar sozinho as dependencia que faltam para iniciar
+### Corrigido
+- Bug onde na parte de digitar o a senha do celular do Nasci o arquivo da senha não é gerado corretamente
+### Alterado
+- Menu principal
+
+> Algum dia de janeiro que eu não lembro de 2025
+- Jogo lançado
