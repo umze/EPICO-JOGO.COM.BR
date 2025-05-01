@@ -29,5 +29,5 @@ Eu (Leonardo) não irei receber nenhuma infomação sua, seus dados são usados 
 ### Alterado
 - Menu principal
 
-> Algum dia de janeiro que eu não lembro de 2025
+## Algum dia de janeiro que eu não lembro de 2025
 - Jogo lançado
