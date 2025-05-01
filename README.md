@@ -24,6 +24,7 @@ Eu (Leonardo) não irei receber nenhuma infomação sua, seus dados são usados 
 - Nova história: niveK
 - Vídeo de introdução ao abrir o jogo
 - Verificador de dependencias: agora o jogo irá instalar sozinho as dependencia que faltam para iniciar
+- "Aviso" ao iniciar o jogo
 ### Corrigido
 - Bug onde na parte de digitar o a senha do celular do Nasci o arquivo da senha não é gerado corretamente
 ### Alterado
