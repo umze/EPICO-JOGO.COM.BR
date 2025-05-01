@@ -1,4 +1,8 @@
 # EPICO JOGO.COM.BR - o jogo épico ;-;
+<p align="center">
+  <img src="https://opengraph.githubassets.com/1/umze/EPICO-JOGO.COM.BR" alt="Logo do EPICO JOGO.COM.BR" width="300"/>
+</p>
+
 
 # JOGO EM PRODUÇÃO MASSIVA
 
