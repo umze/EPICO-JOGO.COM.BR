@@ -1,6 +1,6 @@
 # EPICO JOGO.COM.BR - o jogo épico ;-;
 <p align="center">
-  <img src="https://opengraph.githubassets.com/1/umze/EPICO-JOGO.COM.BR" alt="Logo do EPICO JOGO.COM.BR"/>
+  <img src="/jogo/logo.png" alt="Logo do EPICO JOGO.COM.BR"/>
 </p>
 
 
