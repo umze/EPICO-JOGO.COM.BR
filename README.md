@@ -19,6 +19,8 @@ Eu (Leonardo) não irei receber nenhuma infomação sua, seus dados são usados 
 
 <br/>Para jogar, precisa instalar *Python*. Rode no CMD esse comando
 <br/>`winget install Python.Python.3.13`
+<br/>Ou acesse o site e instale:
+<br/>https://www.python.org/
 <br/>Após isso, baixe o código fonte e rode *jogo.py*
 <br/>Ao abrir o jogo ele irá solicitar a instalação de algumas dependências. Caso não seja instalado, o jogo não irá funcionar corretamente.
 
